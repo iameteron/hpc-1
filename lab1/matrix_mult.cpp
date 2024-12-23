@@ -10,11 +10,12 @@ int main(int argc, char** argv) {
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);  // Номер текущего процесса
     MPI_Comm_size(MPI_COMM_WORLD, &size);  // Общее количество процессов
 
+    std::cout << "Тест" << std::endl;
     // Вывод номера и общего числа процессов
     std::cout << "Процесс " << rank << " из " << size << " процессов" << std::endl;
 
-    const int M = 20000;  // Число строк матрицы
-    const int N = 20000;  // Число столбцов матрицы
+    const int M = 10000;  // Число строк матрицы
+    const int N = 10000;  // Число столбцов матрицы
 
     // Матрица и вектор определяем на основном процессе
     std::vector<int> A;
@@ -60,8 +61,8 @@ int main(int argc, char** argv) {
 
     double end_time = MPI_Wtime();
 
-    bool output = False;
-    if (output == True) {
+    bool output = false;
+    if (output == true) {
         // Вывод результата на главном процессе
         if (rank == 0) {
             std::cout << "Результат умножения матрицы на вектор:" << std::endl;
